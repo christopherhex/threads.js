@@ -1,15 +1,17 @@
+language: node_js
+
 matrix:
   include:
     - os: linux
       addons:
         chrome: stable
+      node_js: 8.6
+    - os: linux
+      addons:
+        chrome: stable
+      node_js: node  # Latest
     - os: windows
-
-language: node_js
-
-node_js:
-  - 8.6
-  - node    # Latest
+      filter_secrets: false  # Secrets will otherwise break Windows builds
 
 script:
   - npm test
