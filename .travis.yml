@@ -12,6 +12,7 @@ matrix:
       node_js: node  # Latest
     - os: windows
       filter_secrets: false  # Secrets will otherwise break Windows builds
+      node_js: latest
 
 script:
   - npm test
