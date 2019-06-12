@@ -1,11 +1,9 @@
-addons:
-  apt:
-    packages:
-      chrome: stable
-
-os:
-  - linux
-  - windows
+matrix:
+  include:
+    - os: linux
+      addons:
+        chrome: stable
+    - os: windows
 
 language: node_js
 
