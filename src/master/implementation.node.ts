@@ -75,7 +75,7 @@ function initTinyWorker(): typeof WorkerImplementation {
       // Need to apply a work-around for Windows or it will choke upon the absolute path
       // (`Error [ERR_INVALID_PROTOCOL]: Protocol 'c:' not supported`)
       const resolvedScriptPath = process.platform === "win32"
-        ? path.relative(process.cwd(), resolveScriptPath(scriptPath))
+        ? `file:///${resolveScriptPath(scriptPath).replace(/\\/g, "/")}`
         : resolveScriptPath(scriptPath)
 
       super(resolvedScriptPath, [], { esm: true })
